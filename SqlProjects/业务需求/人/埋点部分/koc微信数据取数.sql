@@ -1,0 +1,1 @@
+select * from yishou_data.ods_import_koc_wx_data where dt = '20240811';
