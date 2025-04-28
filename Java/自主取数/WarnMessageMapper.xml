@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fmys.api.mapper.WarnMessageMapper" >
+    <insert id="saveToDatabase" parameterType="com.fmys.api.domain.WarnMessage">
+        insert into ys_dgc.warn_info(id,job_id,job_name,job_type,second_type,job_type_id,work_space,dispatch_type,job_status,executor,warn_type,warn_time,trigger_time,last_update_user,rec_info)
+         values(
+        #{record.id},#{record.jobId},#{record.jobName},#{record.jobType},#{record.secondType},#{record.jobTypeId},#{record.workSpace},#{record.dispatchType},#{record.jobStatus},#{record.executor},#{record.warnType},#{record.warnTime},#{record.triggerTime},#{record.lastUpdateUser},#{record.recInfo}
+        )
+    </insert>
+
+    <select id="getUserName" parameterType="String" resultType="String" >
+        SELECT user_name
+        FROM ys_dgc.developer_info
+        where user_id = #{userId}
+    </select>
+
+    <select id="getWorkspaceId" parameterType="String" resultType="String" >
+        SELECT workspace
+        FROM ys_dgc.dgc_workspace
+        where workspace_name = #{workspace}
+    </select>
+
+
+    <select id="getFlinkProcessorDocUrl" parameterType="Integer" resultType="String" >
+        SELECT processor_doc_url
+        FROM ys_dgc.flink_job_py
+        where job_id = #{jobId}
+    </select>
+
+    <select id="getDGCProcessorDocUrl" parameterType="String" resultType="String" >
+        SELECT processor_doc_url
+        FROM ys_dgc.dgc_job_py
+        where job_name = #{jobName} and workspace = #{workspace}
+    </select>
+
+    <select id="getFlinkFeishuRobotUrl" resultType="String" >
+        SELECT warning_robot_url
+        FROM ys_dgc.flink_job_py
+        where  job_id = #{jobId}
+    </select>
+
+    <select id="getDGCFeishuRobotUrl" resultType="String" >
+        SELECT warning_robot_url
+        FROM ys_dgc.dgc_job_py
+        where job_name = #{jobName} and workspace = #{workspace}
+    </select>
+
+    <select id="getFlinkLogFeishuRobotUrl" parameterType="String" resultType="String" >
+        SELECT warning_robot_url
+        FROM ys_dgc.alarm_job_py
+        where job_name = #{jobName}
+    </select>
+
+    <select id="getLastUpdateUser" resultType="String" >
+        SELECT last_update_user
+        FROM ys_dgc.dgc_job_py
+        where job_name = #{jobName} and workspace = #{workspace}
+    </select>
+
+    <select id="isUrgency" resultType="Integer" >
+        SELECT is_urgency
+        FROM ys_dgc.dgc_job_py
+        where job_name = #{jobName} and workspace = #{workspace}
+    </select>
+
+</mapper>
