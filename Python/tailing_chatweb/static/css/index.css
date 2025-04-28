@@ -1,0 +1,62 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+/*主要界面盒子*/
+.main-box{
+    max-width: 940px;
+    min-height: 900px;
+    margin-left: 28%;
+    background-color: lightblue;
+    border-radius: 5px;
+}
+/*聊天窗口盒子*/
+.container {
+    max-width: 860px;
+    min-height: 700px; /* 修改为固定高度 */
+    max-height: 700px; /* 修改为固定高度 */
+    margin: 0 auto;
+    padding: 20px;
+    overflow: auto;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+/*用户发的信息部分*/
+.user-message {
+    text-align: right;
+    background-color: #4caf50;
+    color: #fff;
+}
+/*机器人回复部分*/
+.bot-message {
+    text-align: left;
+    overflow-x: auto; /* 添加滚动条 */
+    /*max-width:30%;*/
+    background-color: lightblue;
+}
+.img-box{
+    width: 40%;
+    height:180px;
+}
+.input-box {
+    display: flex;
+    margin-top: 10px;
+    margin-left:2%;
+    margin-bottom: 10px;
+}
+.send-text-box{
+    width:91%;
+    height:100px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.send-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

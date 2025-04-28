@@ -1,0 +1,31 @@
+/*聊天框*/
+#chat-output {
+    width: 90%;
+    min-height: 700px; /* 修改为固定高度 */
+    max-height: 700px; /* 修改为固定高度 */
+    overflow: auto; /* 添加滚动条 */
+    margin: 0 auto;
+    text-align:left;
+    border: 2px solid #ccc;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+}
+/*聊天内容*/
+.user-message {
+    overflow: auto; /* 添加滚动条 */
+    max-width:30%;
+    text-align: left;
+}
+.bot-message {
+    overflow: auto; /* 添加滚动条 */
+    max-width:30%;
+    margin-left: 60%;
+    text-align: right;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+}

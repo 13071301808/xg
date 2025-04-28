@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>聊天窗口</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js"></script>
+    <!--    聊天内容框函数显示-->
+    <script>
+        $(function() {
+            $('#send-btn').click(function() {
+                var message = $('#message-input').val();
+                // 添加用户消息
+                $('#chat-output').append(
+                    '<p style="text-align:left">用户</p><div class="user-message"><p style="border: 1px solid #ccc">' + message + '</p></div>'
+                );
+                $('#message-input').val('');
+                $.ajax({
+                    url: '/chat',
+                    type: 'POST',
+                    data: {message: message},
+                    success: function(response) {
+                        // 添加机器人消息
+                        $('#chat-output').append(
+                            '<p style="text-align:right">一手</p><div class="bot-message"><p style="border: 1px solid #ccc">' + response + '</p></div>'
+                        );
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>聊天窗口</h1>
+        <div id="chat-output" class="chat-box">
+            <div id="main" style="width: 40%;height:200px;"></div>
+        </div>
+        <div class="input-box">
+            <textarea type="text" id="message-input"
+                  style="width:90%;height:100px;font-size: 18px;"
+                  placeholder="此处输入信息"
+                  name="message">
+
+            </textarea>
+            <button id="send-btn" class="send-button">发送</button>
+        </div>
+    </div>
+</body>
+</html>

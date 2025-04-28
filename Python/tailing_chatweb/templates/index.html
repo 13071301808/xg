@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>聊天窗口</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js"></script>
+    <!--    输入框的输入位置设置为框顶部-->
+    <script>
+        var textarea = document.getElementById("message-input");
+        textarea.addEventListener("focus", function() {
+            this.setSelectionRange(0, 0);
+        });
+    </script>
+    <!--    聊天内容框函数显示-->
+    <script>
+        $(function() {
+            $('#send-btn').click(function() {
+                var message = $('#message-input').val();
+                // 添加用户消息
+                $('#chat-output').append(
+                    '<p style="text-align:left">用户</p><div class="user-message">' + message + '</div>'
+                );
+                $('#message-input').val('');
+                $.ajax({
+                    url: '/chat',
+                    type: 'POST',
+                    data: {message: message},
+                    success: function(response) {
+                        // 添加机器人消息
+                        $('#chat-output').append(
+                            '<p style="text-align:right">一手</p><div class="bot-message">' + response.html + '</div>'
+                        );
+                        // 处理返回的数据
+                        var data = response.data;
+                        // 在#chat-output中添加数据的显示
+                        $('#chat-output').append(
+                            '<div class="bot-message">' + data + '</div>'
+                        );
+                        // 将HTML表格数据转换为CSV格式
+                        var csvData = "";
+                        var rows = $(data).find("tr");
+                        rows.each(function () {
+                            var rowData = [];
+                            $(this)
+                              .find("td")
+                              .each(function () {
+                                rowData.push($(this).text());
+                              });
+                            csvData += rowData.join(",") + "\n";
+                        });
+                        // 获取动态时间
+                        var currentTime = new Date();
+                        var timestamp = currentTime.toISOString().replace(/:/g, '-');
+                        // 创建下载链接
+                        var downloadLink = $('<a>')
+                            .attr('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvData))
+                            .attr('download', 'data-' + timestamp + '.csv')
+                            .text('下载表格数据');
+                        // 创建下载链接
+                        $('#chat-output').append(downloadLink);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="main-box">
+        <h1 style="text-align:center">聊天窗口</h1>
+        <div class="container">
+            <div id="chat-output" class="chat-box"></div>
+        </div>
+        <div class="input-box">
+            <textarea id="message-input" class="send-text-box" onfocus="moveCursor()" placeholder="此处输入信息" rows="5" name="message"></textarea>
+            <button id="send-btn" class="send-button">发送</button>
+        </div>
+    </div>
+</body>
+</html>
