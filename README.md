@@ -14,3 +14,5 @@
 ## API数据获取
 ### 背景
 将存在数仓、飞书、探马等平台的公司数据通过api的方式按实际要求提取处理，制作为表提供给公司的分析师或业务去使用
+## 笔记
+https://zqaz6ts8p1a.feishu.cn/docx/CJGodA6l8oid7DxB0XlcwYDsnNf
