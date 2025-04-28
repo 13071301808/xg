@@ -1,0 +1,26 @@
+[
+  {
+    "name": "123",
+    "password": "123",
+    "level": 10,
+    "exp": 20,
+    "cultivation_stage": "筑基期",
+    "spiritual_power": 460,
+    "cultivation_times": 92,
+    "creation_time": "2025-03-02T16:47:22.867390",
+    "breakthrough_history": [
+      {
+        "time": "2025-03-02T16:48:13.755224",
+        "from": "练气期",
+        "to": "筑基期",
+        "description": "打基础之境,为金丹打下根基"
+      }
+    ],
+    "title": "凡人",
+    "avatar": "images/avatars/剑宗.png",
+    "skills": [],
+    "items": [],
+    "sect": "剑宗",
+    "partner": null
+  }
+]

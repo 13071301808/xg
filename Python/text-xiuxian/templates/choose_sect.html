@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>选择门派 - 修仙界</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/choose_sect.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>选择你的修仙之路</h1>
+            <p>慎重选择，此选择将影响你未来的修仙之路</p>
+        </div>
+
+        <div class="sects-container">
+            {% for sect_name, sect_info in sects.items() %}
+            <div class="sect-card">
+                <div class="sect-avatar">
+                    <img src="{{ url_for('static', filename=sect_info.avatar) }}" alt="{{ sect_name }}">
+                </div>
+                <h2>{{ sect_name }}</h2>
+                <div class="sect-description">{{ sect_info.description }}</div>
+                <div class="sect-bonus">{{ sect_info.bonus }}</div>
+                <a href="{{ url_for('join_sect', sect_name=sect_name) }}" class="choose-btn">加入{{ sect_name }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>修仙界 - 百事通</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>修仙百事通</h1>
+        </div>
+
+        <a href="{{ url_for('game') }}" class="btn back-btn">返回修炼</a>
+
+        <div class="chat-container">
+            <div class="chat-box" id="chatBox">
+                <!-- 聊天记录将在这里显示 -->
+            </div>
+
+            <form class="chat-input" id="chatForm">
+                <textarea name="message" id="messageInput" placeholder="请输入您的问题..." required></textarea>
+                <button type="submit">发送</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 添加消息到聊天框
+        function addMessage(content, isUser = false) {
+            const chatBox = document.getElementById('chatBox');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.textContent = content;
+            chatBox.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        // 添加加载动画
+        function addLoadingIndicator() {
+            const chatBox = document.getElementById('chatBox');
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'loading-message';
+            loadingDiv.innerHTML = `
+                <span>正在思考</span>
+                <div class="loading-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            `;
+            loadingDiv.id = 'loadingIndicator';
+            chatBox.appendChild(loadingDiv);
+            scrollToBottom();
+        }
+
+        // 移除加载动画
+        function removeLoadingIndicator() {
+            const loadingDiv = document.getElementById('loadingIndicator');
+            if (loadingDiv) {
+                loadingDiv.remove();
+            }
+        }
+
+        // 设置表单状态
+        function setFormState(disabled) {
+            const form = document.getElementById('chatForm');
+            const textarea = document.getElementById('messageInput');
+            const button = form.querySelector('button');
+            
+            textarea.disabled = disabled;
+            button.disabled = disabled;
+            form.className = `chat-input ${disabled ? 'disabled' : ''}`;
+        }
+
+        // 自动滚动到底部
+        function scrollToBottom() {
+            const chatBox = document.getElementById('chatBox');
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // 处理表单提交
+        document.getElementById('chatForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value.trim();
+            
+            if (!message) return;
+
+            // 显示用户消息
+            addMessage(message, true);
+            
+            // 清空输入框并禁用表单
+            messageInput.value = '';
+            setFormState(true);
+            
+            // 显示加载动画
+            addLoadingIndicator();
+
+            try {
+                // 发送请求到服务器
+                const response = await fetch("{{ url_for('chat') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `message=${encodeURIComponent(message)}`
+                });
+
+                // 获取响应文本
+                const responseText = await response.text();
+                
+                // 移除加载动画
+                removeLoadingIndicator();
+                
+                // 显示机器人回复
+                addMessage(responseText);
+            } catch (error) {
+                console.error('Error:', error);
+                removeLoadingIndicator();
+                addMessage('抱歉，发生了错误，请稍后再试。');
+            } finally {
+                // 重新启用表单
+                setFormState(false);
+            }
+        });
+
+        // 页面加载完成后滚动到底部
+        window.onload = scrollToBottom;
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>修仙界 - {{player.name}}的修仙之路</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='images/beijing.jpeg') }}');
+        }
+        .exp-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4a90e2, #357abd);
+            width: {{(player.exp / (player.level * 100)) * 100}}%;
+            transition: width 0.3s ease;
+        }
+    </style>
+    <script>
+        function refreshPage() {
+            location.reload();
+        }
+        setInterval(refreshPage, 5000);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{player.name}}的修仙之路</h1>
+        </div>
+
+        <div class="player-card">
+            <div class="avatar-section">
+                <div class="avatar-container">
+                    <img src="{{ url_for('static', filename=player.avatar) }}" alt="{{player.name}}的头像">
+                </div>
+            </div>
+
+            <div class="info-section">
+                <!-- 基本信息组 -->
+                <div class="info-group">
+                    <div class="status-item">
+                        <h3>境界</h3>
+                        <span>{{player.cultivation_stage}}</span>
+                        <span class="stage-description">{{stage_description}}</span>
+                    </div>
+
+                    <div class="status-item">
+                        <h3>等级</h3>
+                        <span>{{player.level}}</span>
+                        <div class="exp-bar">
+                            <div class="exp-fill" style="width: {{(player.exp / (player.level * 50)) * 100}}%"></div>
+                        </div>
+                        <span class="exp-text">{{player.exp}}/{{player.level * 50}}</span>
+                    </div>
+                </div>
+
+                <!-- 门派信息组 -->
+                <div class="info-group">
+                    {% if player.cultivation_stage == "筑基期" and not player.sect %}
+                    <div class="status-item compact">
+                        <h3>门派选择</h3>
+                        <a href="{{ url_for('choose_sect') }}" class="btn btn-small">选择门派</a>
+                    </div>
+                    {% endif %}
+
+                    {% if player.sect %}
+                    <div class="status-item compact">
+                        <h3>门派</h3>
+                        <span>{{ player.sect }}</span>
+                        <span class="sect-bonus">{{ SECTS[player.sect].bonus }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- 功法和属性组 -->
+                <div class="info-group">
+                    {% if player.skills %}
+                    <div class="status-item compact">
+                        <h3>功法</h3>
+                        <div class="skills-list">
+                            {% for skill in player.skills %}
+                            <div class="skill-item">{{ skill }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="status-item compact">
+                        <h3>灵力</h3>
+                        <span>{{player.spiritual_power}}</span>
+                    </div>
+                </div>
+
+                <!-- 道侣组 -->
+                <div class="info-group">
+                    <div class="status-item compact">
+                        <h3>道侣</h3>
+                        <span>{{player.partner}}</span>
+                    </div>
+
+                </div>
+
+                {% if next_stage %}
+                <div class="status-item compact">
+                    <h3>下一境界：{{next_stage}}</h3>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+o
+        <div class="actions">
+            <a href="{{ url_for('cultivate') }}" class="btn btn-cultivate">修炼</a>
+            <a href="{{ url_for('go_chat') }}" class="btn btn-cultivate">百事通</a>
+            {% if player.cultivation_stage == "筑基期" and not player.partner%}
+                <a href="{{ url_for('choose_daolu') }}" class="btn btn-cultivate">道侣</a>
+            {% endif %}
+            <a href="{{ url_for('logout') }}" class="btn logout-btn">退出修仙</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+.sects-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.sect-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.sect-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.sect-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border: 3px solid #4a90e2;
+}
+
+.sect-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sect-description {
+    margin: 15px 0;
+    color: #666;
+}
+
+.sect-bonus {
+    color: #4a90e2;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.choose-btn {
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.choose-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}

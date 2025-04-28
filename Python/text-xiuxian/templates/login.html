@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>登录 - 小高修仙传</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <style>
+        .input-group input[type="password"],.input-group input[type="text"]{
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e1e1e1;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.9);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>进入修仙界</h2>
+        <p class="subtitle">踏上修仙之路，寻找属于你的大道</p>
+
+        <div class="form-container">
+            <form method="POST">
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="请输入道号" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="请输入密码" required>
+                </div>
+                <button type="submit" class="btn-enter">开始修仙之旅</button>
+            </form>
+
+            <div class="switch-form">
+                还没有账号？<a href="{{ url_for('register') }}">立即注册</a>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <script>
+        window.onload = function() {
+            const messages = document.getElementsByClassName('flash-message');
+            setTimeout(function() {
+                Array.from(messages).forEach(msg => {
+                    msg.classList.add('fade-out');
+                });
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
