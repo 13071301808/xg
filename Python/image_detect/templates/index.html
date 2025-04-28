@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片打标界面</title>
+</head>
+<body>
+    <div style="text-align:center;">
+       <h1>图片打标</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*">
+            <input type="submit" value="点击上传">
+        </form>
+        {% if message == '上传成功' %}
+        <p style="color:blue">{{ message }}</p>
+        {% else %}
+        <p style="color:red">{{ message }}</p>
+        {% endif %}
+    </div>
+    <div style="text-align:center;">
+        <h1>图片展示</h1>
+        {% if filename %}
+        <img src="{{ url_for('static', filename='model_images/' + filename) }}" style="width:30%;max-height:60%" alt="图片暂时莫得哦">
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -48,11 +48,17 @@
 -- STORED AS ORC LOCATION 'obs://yishou-bigdata/yishou_daily.db/dtl_special_label_multi_use_dt'
 -- ;
 
+-- -- 添加字段到最后
+-- alter table yishou_daily.dtl_special_label_multi_use_dt
+-- add columns (
+--   big_market_lists string comment '大市场标签列表'
+-- );
+
 -- 插数
 insert overwrite table yishou_daily.dtl_special_label_multi_use_dt PARTITION(dt)
-select 
+select
     fs.special_id
-    -- ,case 
+    -- ,case
     --     when goods.discount_1_goods > 200 then '1折'
     --     when goods.discount_2_goods > 200 then '2折'
     --     when goods.discount_3_goods > 200 then '3折'
@@ -70,18 +76,19 @@ select
     ,three_cat_lists
     ,supply_lists
     ,style_lists
+    ,big_market_lists
     ,'${gmtdate}' as dt
 from (
     -- 专场主表
-    select 
+    select
         special_id
         ,to_char(FROM_UNIXTIME(special_start_time-25200),'yyyymmdd') as special_date
     from yishou_data.all_fmys_special_h
     where to_char(FROM_UNIXTIME(special_start_time-25200),'yyyymmdd') = '${gmtdate}'
-) fs 
+) fs
 left join (
     -- 商品
-    select 
+    select
         frsog.special_date
         ,frsog.special_id
         -- ,count(case when frsog.discount_ratio < 0.1 then frsog.goods_no end) as discount_1_goods
@@ -94,16 +101,16 @@ left join (
         -- ,count(case when frsog.discount_ratio < 0.8 then frsog.goods_no end) as discount_8_goods
         -- ,count(case when frsog.discount_ratio < 0.9 then frsog.goods_no end) as discount_9_goods
         -- ,count(case when frsog.discount_ratio < 1.0 then frsog.goods_no end) as discount_10_goods
-        -- 近3天，例：24-26
-        ,count(case when datediff(current_date(),new_goods_first_up_time) <= 2 then frsog.goods_no end) as new_goods_1
+        -- 当天
+        ,count(case when datediff(current_date(),new_goods_first_up_time) = 0 then frsog.goods_no end) as new_goods_1
     from (
-        select 
-            a.* 
-            -- 新款首次上架时间 
+        select
+            a.*
+            -- 新款首次上架时间
             ,to_char(coalesce(a.new_first_up_time,from_unixtime(unix_timestamp(current_date(), 'yyyy-MM-dd') + 7 * 3600)),'yyyy-mm-dd') as new_goods_first_up_time
             ,a.shop_price / t2.shop_price as discount_ratio
         from (
-            select 
+            select
                 special_date
                 , goods_no
                 , goods_id
@@ -111,19 +118,19 @@ left join (
                 , shop_price
                 , is_putaway
                 , new_first_up_time
-                ,ROW_NUMBER() over(PARTITION BY goods_id ORDER BY special_id desc) rank_num 
+                ,ROW_NUMBER() over(PARTITION BY goods_id ORDER BY special_id desc) rank_num
             from yishou_daily.finebi_realdata_special_onsale_goods
         ) a
         left join yishou_data.dim_goods_no_info_full_h t2 on a.goods_no = t2.goods_no
         where a.rank_num = 1
     ) frsog
-    where frsog.special_date = '${gmtdate}' 
+    where frsog.special_date = '${gmtdate}'
     and frsog.is_putaway = '上架'
     group by frsog.special_date,frsog.special_id
 ) goods on goods.special_id = fs.special_id and fs.special_date = goods.special_date
 left join (
     -- 品类
-    select 
+    select
         special_date
         ,special_id
         ,concat(
@@ -139,7 +146,7 @@ left join (
             ']'
         ) as three_cat_lists
     from (
-        select 
+        select
             to_char(dgif.special_date,'yyyymmdd') as special_date
             ,fs.special_id
             ,dci.cat_id
@@ -149,11 +156,11 @@ left join (
         from yishou_data.all_fmys_special_h fs
         left join yishou_data.dim_goods_id_info_full_h dgif on dgif.special_id = fs.special_id
         left join (
-            SELECT 
+            SELECT
                 fc.cat_id
                 , case when fc.grade = 3 then fc.cat_name end as third_cat_name
-            from yishou_data.all_fmys_category_h fc 
-            left join yishou_data.all_fmys_category_h fc1 on fc.parent_id = fc1.cat_id 
+            from yishou_data.all_fmys_category_h fc
+            left join yishou_data.all_fmys_category_h fc1 on fc.parent_id = fc1.cat_id
             left join yishou_data.all_fmys_category_h fc2 on fc1.parent_id = fc2.cat_id
         ) dci on dci.cat_id = dgif.cat_id
         where to_char(dgif.special_date,'yyyymmdd') = '${gmtdate}'
@@ -165,7 +172,7 @@ left join (
 ) cat_rank on cat_rank.special_id = fs.special_id and fs.special_date = cat_rank.special_date
 left join (
     -- 供应商
-    select 
+    select
         special_date
         ,special_id
         ,concat(
@@ -181,7 +188,7 @@ left join (
             ']'
         ) as supply_lists
     from(
-        select 
+        select
             to_char(dgif.special_date,'yyyymmdd') as special_date
             ,fs.special_id
             ,dsi.supply_id
@@ -191,14 +198,14 @@ left join (
         from yishou_data.all_fmys_special_h fs
         left join yishou_data.dim_goods_id_info_full_h dgif on dgif.special_id = fs.special_id
         left join yishou_data.ods_fmys_supply_view dsi on dsi.supply_id = dgif.supply_id
-        left join (	
+        left join (
             -- 主品牌
         	select
                 supply_id
                 , brand_id
                 , brand_name
         	from (
-                select 
+                select
                     sb.supply_id
                     , sb.brand_id
                     , fgb.brand_name
@@ -209,7 +216,7 @@ left join (
                 where sb.is_main = 1 and sb.status <> 0
         	)
         	where num = 1
-        ) sb 
+        ) sb
         on dsi.supply_id = sb.supply_id
         where to_char(dgif.special_date,'yyyymmdd') = '${gmtdate}'
         and dgif.is_on_sale = 1
@@ -220,7 +227,7 @@ left join (
 ) supply_rank on supply_rank.special_id = fs.special_id and fs.special_date = supply_rank.special_date
 left join (
     -- 风格
-    select 
+    select
         special_date
         ,special_id
         ,concat(
@@ -236,7 +243,7 @@ left join (
             ']'
         ) as style_lists
     from(
-        select 
+        select
             to_char(dgif.special_date,'yyyymmdd') as special_date
             ,fs.special_id
             ,dgnif.style_id
@@ -252,9 +259,45 @@ left join (
         having sale_kh > 200
     )
     group by 1,2
-) style_rank 
+) style_rank
 on style_rank.special_id = fs.special_id and fs.special_date = style_rank.special_date
-DISTRIBUTE BY dt 
+left join (
+    -- 大市场
+    select
+        special_date
+        ,special_id
+        ,concat(
+            '[',
+            regexp_replace(
+                concat_ws(
+                    ',',
+                    sort_array(collect_list(concat_ws(':',lpad(cast(rank_num as string),5,'0'),CONCAT('{"id":"',big_market_id,'","name":"',big_market,'"}'))))
+                ),
+                '\\d+\:',
+                ''
+            ),
+            ']'
+        ) as big_market_lists
+    from(
+        select
+            to_char(dgif.special_date,'yyyymmdd') as special_date
+            ,fs.special_id
+            ,fbm.big_market_id
+            ,dgif.big_market
+            ,count(DISTINCT dgif.goods_no) as sale_kh
+            ,ROW_NUMBER() OVER (PARTITION BY fs.special_id,to_char(dgif.special_date,'yyyymmdd') ORDER BY count(DISTINCT dgif.goods_no) DESC) AS rank_num
+        from yishou_data.all_fmys_special_h fs
+        left join yishou_data.dim_goods_id_info_full_h dgif on dgif.special_id = fs.special_id
+        left join yishou_data.all_fmys_big_market_h fbm on fbm.big_market_name = dgif.big_market
+        where to_char(dgif.special_date,'yyyymmdd') = '${gmtdate}'
+        and dgif.is_on_sale = 1
+        group by 1,2,3,4
+        having sale_kh > 100
+    )
+    group by 1,2
+) big_market_rank
+on big_market_rank.special_id = fs.special_id and fs.special_date = big_market_rank.special_date
+DISTRIBUTE BY dt
 ;
 
 -- 打到redis
@@ -267,8 +310,8 @@ DISTRIBUTE BY dt
 -- STORED AS ORC LOCATION 'obs://yishou-bigdata/yishou_daily.db/dtl_special_label_multi_use_redis_dt'
 -- ;
 
-insert OVERWRITE table yishou_daily.dtl_special_label_multi_use_redis_dt
-SELECT 
+insert OVERWRITE table yishou_daily.dtl_special_label_multi_use_redis_dt PARTITION(dt)
+SELECT
     special_id as key,
     CONCAT(
         '{',
@@ -276,7 +319,8 @@ SELECT
         '"is_new":"', IF(is_new IS NULL, '', is_new), '",',
         '"cat_label":', IF(three_cat_lists IS NULL, '[]', three_cat_lists), ',',
         '"supply_label":', IF(supply_lists IS NULL, '[]', supply_lists), ',',
-        '"style_label":', IF(style_lists IS NULL, '[]', style_lists),
+        '"style_label":', IF(style_lists IS NULL, '[]', style_lists),',',
+        '"big_market_label":', IF(big_market_lists IS NULL, '[]', big_market_lists),
         '}'
     ) AS value
     ,dt
