@@ -10,8 +10,8 @@ import argparse
 import csv
 
 # api全局配置
-appId = "wxc0c5b4d69758d0fc_M1wWLi"
-appKey = "YS4vk9Kqw10QVZL5sFo8lboGujREKuCn"
+appId = "xxx"
+appKey = "xxx"
 http_url = "https://account.tanmarket.cn/apiServer"
 # obs全局配置
 ak = 'TWXI4V3FPVN8RGQY4BUO'
