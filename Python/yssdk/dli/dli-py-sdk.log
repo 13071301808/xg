@@ -1,0 +1,55 @@
+2022-05-12 11:27:28,874|15356|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-12 11:27:29,628|15356|MainThread|INFO|dli.execute|submit job: 090adc6d-19b7-4feb-b1fe-2a955f42abcd|dli.py:211
+2022-05-12 11:27:29,628|15356|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-12 11:27:29,629|15356|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2022-05-12 11:29:12,317|20784|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-12 11:29:15,400|20784|MainThread|INFO|dli.execute|submit job: dfe2dcb0-bb5e-45c7-bb14-a8da5df0d7a7|dli.py:211
+2022-05-12 11:29:16,370|20784|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-12 11:29:17,385|20784|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2022-05-12 11:35:30,857|28332|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-12 11:35:37,433|28332|MainThread|INFO|dli.execute|submit job: e2c9e449-0dc1-4adb-b9f8-89acf9296623|dli.py:211
+2022-05-12 11:35:38,662|28332|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-12 11:35:39,631|28332|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2022-05-12 11:35:48,764|34740|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-12 11:35:50,209|34740|MainThread|INFO|dli.execute|submit job: 4ff2a442-3896-4a7b-87c1-0d4010356310|dli.py:211
+2022-05-12 11:35:50,210|34740|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-12 11:35:50,210|34740|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2022-05-12 11:35:55,308|34740|MainThread|INFO|dli.execute|submit job: 1c881037-2d1e-4176-99e9-db1275e40de4|dli.py:211
+2022-05-12 11:35:56,614|34740|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-12 11:35:57,554|34740|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2022-05-12 11:36:47,186|34712|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-12 11:36:48,716|34712|MainThread|INFO|dli.execute|submit job: 6b95eddf-d531-4ca3-9fb1-457d4a3b423f|dli.py:211
+2022-05-12 11:36:48,716|34712|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-12 11:36:48,716|34712|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2022-05-12 11:36:51,674|34712|MainThread|INFO|dli.execute|submit job: 43d903f7-9ff7-4852-a4be-865083455fce|dli.py:211
+2022-05-12 11:36:52,629|34712|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-12 11:36:53,557|34712|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2022-05-12 11:42:42,132|38732|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-12 11:42:50,259|38732|MainThread|INFO|dli.execute|submit job: 3dd1e7c8-4e1f-4b1d-a6d4-e5fa427eb113|dli.py:211
+2022-05-12 11:43:19,565|45268|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-12 11:43:26,622|45268|MainThread|INFO|dli.execute|submit job: a2affde8-046f-49cf-bebf-4729221f9c36|dli.py:211
+2022-05-12 11:43:27,513|45268|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-12 11:43:28,761|45268|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2022-05-13 17:33:11,717|35932|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 17:33:50,087|13488|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 17:33:59,552|72264|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 17:34:43,864|64076|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 17:34:48,555|64076|MainThread|INFO|dli.execute|submit job: dee945e4-48a2-4a4a-9899-30eb09a56d17|dli.py:211
+2022-05-13 17:34:48,556|64076|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-13 17:34:49,225|64076|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2022-05-13 17:35:09,411|1948|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 17:41:30,938|23052|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 17:45:07,498|29432|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 17:56:20,017|66480|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 17:57:01,925|66480|MainThread|INFO|dli.execute|submit job: b52a5f18-6839-4524-bcd8-5973d1e0cd72|dli.py:211
+2022-05-13 17:57:01,926|66480|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-13 18:16:30,113|12728|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 18:16:59,313|12728|MainThread|INFO|dli.execute|submit job: eb3679fb-026f-4ef9-bb87-1cab768fc349|dli.py:211
+2022-05-13 18:22:08,893|70900|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 18:22:27,927|70900|MainThread|INFO|dli.execute|submit job: 8a684933-f185-4e2b-9fc8-c2fe61da5c3d|dli.py:211
+2022-05-13 18:22:27,928|70900|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-13 18:22:28,176|70900|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2022-05-13 18:22:44,735|17308|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 18:23:05,889|17308|MainThread|INFO|dli.execute|submit job: ebecd758-c349-496e-b5de-8c527e487ee4|dli.py:211
+2022-05-13 18:23:05,889|17308|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-13 18:23:06,293|17308|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231

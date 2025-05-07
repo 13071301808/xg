@@ -1,0 +1,186 @@
+{
+  "autoAcquireLock": "True",
+  "basicConfig": {
+    "agency": "dgc_agency",
+    "customFields": {},
+    "executeUser": "",
+    "instanceTimeout": 20,
+    "owner": "",
+    "priority": 0
+  },
+  "directory": "/ods/业务数据/${mysql_table_name}",
+  "emptyRunningJob": "0",
+  "location": {
+    "x": "750",
+    "y": "395"
+  },
+  "maskedParams": [],
+  "name": "${dli_table_name}",
+  "nodes": [{
+    "failPolicy": "FAIL_CHILD",
+    "location": {
+      "x": "-406.0",
+      "y": "-50.0"
+    },
+    "maxExecutionTime": 360,
+    "name": "${dli_table_name}_start",
+    "pollingInterval": 20,
+    "preNodeName": [],
+    "properties": [{
+      "name": "database",
+      "value": "yishou_data"
+    }, {
+      "name": "queueName",
+      "value": "develop"
+    }, {
+      "name": "recordDirtyData",
+      "value": "true"
+    }, {
+      "name": "statementOrScript",
+      "value": "STATEMENT"
+    }, {
+      "name": "sql",
+      "value": "ALTER TABLE yishou_data.ods_binlog_data ADD if not exists PARTITION (dt=${today}, tb = '${mysql_table_name}');"
+    },
+      {
+        "name": "emptyRunningJob",
+        "value": "0"
+      }
+    ],
+    "resouces": [],
+    "retryInterval": 120,
+    "retryTimes": 0,
+    "type": "DLISQL"
+  },
+    {
+      "conditions": [{
+        "expression": "#{DateUtil.format(Job.planTime,\"HHmmss\") == '070500' ? 'true' : 'false'}",
+        "preNodeName": "${dli_table_name}_start",
+        "skipPolicy": "SKIP_NEXT_ALL"
+      }],
+      "failPolicy": "FAIL_CHILD",
+      "location": {
+        "x": "-153.0",
+        "y": "33.0"
+      },
+      "maxExecutionTime": 360,
+      "name": "${dli_table_name}_DLI任务",
+      "pollingInterval": 20,
+      "preNodeName": ["${dli_table_name}_start"],
+      "properties": [{
+        "name": "database",
+        "value": "yishou_data"
+      }, {
+        "name": "queueName",
+        "value": "develop"
+      }, {
+        "name": "recordDirtyData",
+        "value": "true"
+      }, {
+        "name": "statementOrScript",
+        "value": "STATEMENT"
+      }, {
+        "name": "sql",
+        "value": "${insert_sql}"
+      }, {
+        "name": "emptyRunningJob",
+        "value": "0"
+      }],
+      "resouces": [],
+      "retryInterval": 120,
+      "retryTimes": 0,
+      "type": "DLISQL"
+    },
+    {
+      "conditions": [{
+        "expression": "#{DateUtil.format(Job.planTime,\"HHmmss\") == '000500' ? 'true' : 'false'}",
+        "preNodeName": "${dli_table_name}_start",
+        "skipPolicy": "SKIP_NEXT_ALL"
+      }],
+      "failPolicy": "FAIL_CHILD",
+      "location": {
+        "x": "-150.0",
+        "y": "-159.0"
+      },
+      "maxExecutionTime": 360,
+      "name": "ods_${mysql_table_name}_temp_临时表_CDM任务",
+      "pollingInterval": 20,
+      "preNodeName": ["${dli_table_name}_start"],
+      "properties": [{
+        "name": "jobType",
+        "value": "existsJob"
+      }, {
+        "name": "clusterName",
+        "value": "cdm-3058"
+      },  {
+        "name": "jobName",
+        "value": "ods_${mysql_table_name}_temp_临时表_CDM任务"
+      }, {
+        "name": "emptyRunningJob",
+        "value": "0"
+      }],
+      "resouces": [],
+      "retryInterval": 120,
+      "retryTimes": 0,
+      "type": "CDMJob"
+    }
+    ,
+    {
+      "failPolicy": "FAIL_CHILD",
+      "location": {
+        "x": "72.0",
+        "y": "-45.0"
+      },
+      "maxExecutionTime": 360,
+      "name": "${dli_view_name}_视图创建",
+      "pollingInterval": 20,
+      "preNodeName": ["${dli_table_name}_DLI任务"],
+      "properties": [{
+        "name": "database",
+        "value": "yishou_data"
+      }, {
+        "name": "queueName",
+        "value": "develop"
+      }, {
+        "name": "recordDirtyData",
+        "value": "true"
+      }, {
+        "name": "statementOrScript",
+        "value": "STATEMENT"
+      }, {
+        "name": "sql",
+        "value": "${view_sql}"
+      }, {
+        "name": "emptyRunningJob",
+        "value": "0"
+      }],
+      "resouces": [],
+      "retryInterval": 20,
+      "retryTimes": 3,
+      "type": "DLISQL"
+    }
+  ],
+  "processType": "BATCH",
+  "resouces": [],
+  "schedule": {
+    "cron": {
+      "concurrent": 100,
+      "dependJobs": {
+        "dependFailPolicy": "FAIL",
+        "dependPeriod": "SAME_PERIOD",
+        "jobs": [],
+        "sameWorkSpaceJobs": []
+      },
+      "dependPrePeriod": "false",
+      "expression": "0 5 0,7 * * ?",
+      "expressionTimeZone": "GMT+08:00",
+      "startTime": "2024-01-24T00:00:00+08"
+    },
+    "type": "CRON"
+  },
+  "singleNodeJobFlag": "False",
+  "useCdmCache": "False",
+  "version": "1.0",
+  "targetStatus": "SUBMITTED",
+  "approvers": [{"approverName": "yangshibiao"}, {"approverName": "zouyi"}]
+}

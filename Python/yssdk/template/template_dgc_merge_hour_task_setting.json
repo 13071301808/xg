@@ -1,0 +1,89 @@
+{
+    "autoAcquireLock":true,
+    "basicConfig":{
+        "agency":"dgc_agency",
+        "customFields":{
+
+        },
+        "executeUser":"",
+        "instanceTimeout":0,
+        "owner":"",
+        "priority":0
+    },
+    "directory":"/ods/merge层",
+    "location":{
+        "x":"559",
+        "y":"332"
+    },
+    "maskedParams":[
+
+    ],
+    "name":"${merge_job_name}",
+    "nodes":[
+        {
+            "failPolicy":"FAIL_CHILD",
+            "location":{
+                "x":"-304.0",
+                "y":"67.0"
+            },
+            "maxExecutionTime":30,
+            "name":"${merge_job_name}",
+            "pollingInterval":20,
+            "preNodeName":[
+
+            ],
+            "properties":[
+                {
+                    "name":"scriptName",
+                    "value":"binlog_merge_table_avro_hour_task"
+                },
+                {
+                    "name":"connectionName",
+                    "value":"qiyu_bigdata"
+                },
+                {
+                    "name":"arguments",
+                    "value":"-n {table} -d ${cyctime}"
+                },
+                {
+                    "name":"statementOrScript",
+                    "value":"SCRIPT"
+                }
+            ],
+            "resouces":[
+
+            ],
+            "retryInterval":120,
+            "retryTimes":0,
+            "type":"Python"
+        }
+    ],
+    "processType":"BATCH",
+    "resouces":[
+
+    ],
+    "schedule":{
+        "cron":{
+            "concurrent":100,
+            "dependJobs":{
+                "dependFailPolicy":"FAIL",
+                "dependPeriod":"SAME_PERIOD",
+                "jobs":[
+
+                ],
+                "sameWorkSpaceJobs":[
+
+                ]
+            },
+            "dependPrePeriod":false,
+            "expression":"0 1 0-23/1 * * ?",
+            "expressionTimeZone":"GMT+08:00",
+            "startTime":"2022-03-09T14:23:00+08"
+        },
+        "type":"CRON"
+    },
+    "singleNodeJobFlag":false,
+    "updateLineageInfo":false,
+    "useCdmCache":false,
+    "version":"1.0"
+}

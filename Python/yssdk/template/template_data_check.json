@@ -1,0 +1,98 @@
+{
+  "autoAcquireLock": "True",
+  "basicConfig": {
+    "agency": "dgc_agency",
+    "customFields": {},
+    "executeUser": "",
+    "instanceTimeout": 0,
+    "owner": "",
+    "priority": 0
+  },
+  "directory": "/ods/业务数据/${mysql_table}",
+  "emptyRunningJob": "0",
+  "location": {
+    "x": "750",
+    "y": "376"
+  },
+  "maskedParams": [],
+  "name": "${osd_data_check_job}",
+  "nodes": [{
+    "failPolicy": "FAIL_CHILD",
+    "location": {
+      "x": "-270.0",
+      "y": "-50.0"
+    },
+    "maxExecutionTime": 360,
+    "name": "${osd_data_check_job}_CDM任务",
+    "pollingInterval": 20,
+    "preNodeName": [],
+    "properties": [{
+      "name": "jobType",
+      "value": "existsJob"
+    }, {
+      "name": "clusterName",
+      "value": "cdm-53f2"
+    }, {
+      "name": "jobName",
+      "value": "${osd_data_check_job}_CDM任务"
+    }, {
+      "name": "emptyRunningJob",
+      "value": "0"
+    }],
+    "resouces": [],
+    "retryInterval": 120,
+    "retryTimes": 0,
+    "type": "CDMJob"
+  }, {
+    "failPolicy": "FAIL_CHILD",
+    "location": {
+      "x": "-64.0",
+      "y": "-37.0"
+    },
+    "maxExecutionTime": 360,
+    "name": "${osd_data_check_job}_异常告警任务",
+    "pollingInterval": 20,
+    "preNodeName": ["${osd_data_check_job}_CDM任务"],
+    "properties": [{
+      "name": "scriptName",
+      "value": "data_monitor_alarm"
+    }, {
+      "name": "connectionName",
+      "value": "qiyu_bigdata"
+    }, {
+      "name": "arguments",
+      "value": "-q \"${data_check_sql}\" - t dli - n ${osd_data_check_job} - d 数据异常 - g dev - b N "
+    }, {
+      "name": "statementOrScript",
+      "value": "SCRIPT"
+    }, {
+      "name": "emptyRunningJob",
+      "value": "0"
+    }],
+    "resouces": [],
+    "retryInterval": 120,
+    "retryTimes": 0,
+    "type": "Python"
+  }],
+  "processType": "BATCH",
+  "resouces": [],
+  "schedule": {
+    "cron": {
+      "concurrent": 1,
+      "dependJobs": {
+        "dependFailPolicy": "FAIL",
+        "dependPeriod": "SAME_PERIOD",
+        "jobs": [],
+        "sameWorkSpaceJobs": []
+      },
+      "dependPrePeriod": "True",
+      "expression": "0 0 11 ? * 1",
+      "expressionTimeZone": "GMT+08:00",
+      "startTime": "2022-09-02T11:07:37+08"
+    },
+    "type": "CRON"
+  },
+  "singleNodeJobFlag": "False",
+  "useCdmCache": "False",
+  "version": "1.0"
+}

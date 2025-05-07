@@ -1,0 +1,107 @@
+{
+  "autoAcquireLock": "True",
+  "basicConfig": {
+    "agency": "dgc_agency",
+    "customFields": {},
+    "executeUser": "",
+    "instanceTimeout": 0,
+    "owner": "",
+    "priority": 0
+  },
+  "directory": "/ods/业务数据/${mysql_table}",
+  "emptyRunningJob": "0",
+  "location": {
+    "x": "804",
+    "y": "384"
+  },
+  "maskedParams": [],
+  "name": "${ods_record_table}",
+  "nodes": [{
+    "failPolicy": "FAIL_CHILD",
+    "location": {
+      "x": "-338.0",
+      "y": "-60.0"
+    },
+    "maxExecutionTime": 360,
+    "name": "${ods_record_table}_start",
+    "pollingInterval": 20,
+    "preNodeName": [],
+    "properties": [{
+      "name": "database",
+      "value": "yishou_data"
+    }, {
+      "name": "queueName",
+      "value": "big_queue2"
+    }, {
+      "name": "recordDirtyData",
+      "value": "true"
+    }, {
+      "name": "statementOrScript",
+      "value": "STATEMENT"
+    }, {
+      "name": "sql",
+      "value": "-- 在ods_binlog_data表中增加对应日期和表名的分区\nALTER TABLE ${yishou_data_dbname}.ods_binlog_data ADD if not exists PARTITION (dt=${today}, tb = '${mysql_table}');"
+    }, {
+      "name": "emptyRunningJob",
+      "value": "0"
+    }],
+    "resouces": [],
+    "retryInterval": 120,
+    "retryTimes": 0,
+    "type": "DLISQL"
+  }, {
+    "failPolicy": "FAIL_CHILD",
+    "location": {
+      "x": "-104.0",
+      "y": "-44.0"
+    },
+    "maxExecutionTime": 360,
+    "name": "${ods_record_table}_跑数脚本",
+    "pollingInterval": 20,
+    "preNodeName": ["${ods_record_table}_start"],
+    "properties": [{
+      "name": "database",
+      "value": "yishou_data"
+    }, {
+      "name": "queueName",
+      "value": "big_queue2"
+    }, {
+      "name": "recordDirtyData",
+      "value": "true"
+    }, {
+      "name": "statementOrScript",
+      "value": "STATEMENT"
+    }, {
+      "name": "sql",
+      "value": "${sql}"
+    }, {
+      "name": "emptyRunningJob",
+      "value": "0"
+    }],
+    "resouces": [],
+    "retryInterval": 120,
+    "retryTimes": 0,
+    "type": "DLISQL"
+  }],
+  "processType": "BATCH",
+  "resouces": [],
+  "schedule": {
+    "cron": {
+      "concurrent": 1,
+      "dependJobs": {
+        "dependFailPolicy": "FAIL",
+        "dependPeriod": "SAME_PERIOD",
+        "jobs": [],
+        "sameWorkSpaceJobs": []
+      },
+      "dependPrePeriod": "True",
+      "expression": "0 0 10 * * ?",
+      "expressionTimeZone": "GMT+08:00",
+      "startTime": "2022-09-01T17:25:19+08"
+    },
+    "type": "CRON"
+  },
+  "singleNodeJobFlag": "False",
+  "useCdmCache": "False",
+  "version": "1.0"
+}

@@ -1,0 +1,4 @@
+2022-05-13 18:26:52,166|48560|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2022-05-13 18:27:09,439|48560|MainThread|INFO|dli.execute|submit job: 602ce077-c78b-4643-b951-a6313cbc1c2e|dli.py:211
+2022-05-13 18:27:09,439|48560|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2022-05-13 18:27:09,684|48560|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
