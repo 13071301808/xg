@@ -7,12 +7,16 @@
 ### 技术
 1、flask框架及对应组件<br>
 2、deepseek模型<br>
-3、
+
 ## ChatSQL 
 ### 背景
 店主聊天展示问答看板
 ## API数据获取
 ### 背景
 将存在数仓、飞书、探马等平台的公司数据通过api的方式按实际要求提取处理，制作为表提供给公司的分析师或业务去使用
+### 技术
+1、华为云api<br>
+2、飞书api<br>
+3、探马api
 ## 笔记
 https://zqaz6ts8p1a.feishu.cn/docx/CJGodA6l8oid7DxB0XlcwYDsnNf
