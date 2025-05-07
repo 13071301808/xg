@@ -10,6 +10,7 @@ from pyecharts.charts import Line
 from pyecharts import options as opts
 from pyecharts.render import make_snapshot
 from snapshot_selenium import snapshot as driver
+from yssdk.common.alarm import Alarm
 
 # 全局配置参数
 # 添加忽略网络安全提示
@@ -80,123 +81,6 @@ sql2 = f'''
     where dt = {one_day_ago} and city in ('沈阳市','北京市','郑州市','广州市','昆明市','杭州市')
 '''
 
-
-class Alarm_XG:
-    def __init__(self, alarm_title):
-        self.is_short = False
-        self.tag = "lark_md"
-        self.alarm_title = alarm_title
-        self.headers = {
-            'Authorization': 'Bearer ' + get_authorization(),
-            'Content-Type': 'application/json'
-        }
-        self.alarm_content = []
-        self.alarm_url = 'https://open.feishu.cn/open-apis/bot/v2/hook/294cf0df-3150-410e-b25d-6932f0cf38df'
-        self.color = "red"
-
-    # 告警json数据汇总
-    def generate_alarm_message(self, alarm_field_message):
-        return {
-            "msg_type": "interactive",
-            "card": {
-                "config": {
-                    "wide_screen_mode": True
-                },
-                "elements": [
-                    {
-                        "tag": "img",
-                        "img_key": image_keys[0],
-                        "alt": {
-                            "tag": "plain_text",
-                            "content": "未来最高温趋势图"
-                        },
-                        "mode": "fit_horizontal",
-                        "preview": True
-                    },
-                    {
-                        "tag": "img",
-                        "img_key": image_keys[1],
-                        "alt": {
-                            "tag": "plain_text",
-                            "content": "未来最低温趋势图"
-                        },
-                        "mode": "fit_horizontal",
-                        "preview": True
-                    },
-                    {
-                        "tag": "hr"
-                    },
-                    {
-                        "fields": alarm_field_message,
-                        "tag": "div"
-                    }
-                ],
-                "header": {
-                    "template": self.color,
-                    "title": {
-                        "content": self.alarm_title,
-                        "tag": "plain_text"
-                    }
-                }
-            }
-        }
-
-    # 设置飞书告警url
-    def set_alarm_url(self, url):
-        self.alarm_url = url
-
-    # 设置飞书模板颜色
-    def set_color(self, color):
-        self.color = color
-
-    # 生成告警字段的信息
-    def get_alarm_field_info(self, field_name, field_value):
-        field_info = {
-            "is_short": self.is_short,
-            "text": {
-                "content": "**%s**: %s" % (field_name, field_value),
-                "tag": self.tag
-            }
-        }
-        return field_info
-
-    # 设置告警字段的信息
-    def set_alarm_field(self, field_name, field_value):
-        field_info = self.get_alarm_field_info(field_name, field_value)
-        self.alarm_content.append(field_info)
-
-    # 生成告警信息
-    def build_alarm(self):
-        return self.generate_alarm_message(self.alarm_content)
-
-    # 发送到飞书
-    def send_feishu(self, alarm_message):
-        print(str(alarm_message))
-        response = requests.post(
-            url=self.alarm_url,
-            data=json.dumps(alarm_message),
-            headers=self.headers,
-            verify=False
-        )
-        return response
-
-
-# 自动获取最新的token
-def get_authorization():
-    url = "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal"
-    payload = json.dumps({
-        "app_id": "cli_a46f1952bb79d00c",
-        "app_secret": "s9xm9RJ7KAdxlKMIzBZ0ofWYpsdG3Wao"
-    })
-    headers = {
-        'Content-Type': 'application/json;charset=utf-8'
-    }
-    response = requests.request("POST", url, headers=headers, data=payload)
-    response_data = json.loads(response.text)
-    Authorization = response_data['tenant_access_token']
-    return Authorization
-
-
 # 制作城市维度的最高温图片
 def made_tu_weather_max() -> Line:
     try:
@@ -230,7 +114,7 @@ def made_tu_weather_max() -> Line:
         # 添加睡眠缓冲
         time.sleep(2)
         # 将网页转换为图片
-        weather_max_path = "/data/project/test/weather/img/line_weather_max.png"
+        weather_max_path = "/home/data_user/xiaogao/line_weather_max.png"
         # 如果图片文件已存在，删除旧文件
         if os.path.exists(weather_max_path):
             print('图片已存在，清除旧文件')
@@ -239,7 +123,6 @@ def made_tu_weather_max() -> Line:
         return line
     except Exception as e:
         print(e)
-
 
 # 制作城市维度的最低温图片
 def made_tu_weather_min(result_weather_min) -> Line:
@@ -271,7 +154,7 @@ def made_tu_weather_min(result_weather_min) -> Line:
         # 添加睡眠缓冲
         time.sleep(2)
         # 将图表保存为图片
-        weather_min_path = "/data/project/test/weather/img/line_weather_min.png"
+        weather_min_path = "/home/data_user/xiaogao/line_weather_min.png"
         # 如果图片文件已存在，删除旧文件
         if os.path.exists(weather_min_path):
             print('图片已存在，清除旧文件')
@@ -280,7 +163,6 @@ def made_tu_weather_min(result_weather_min) -> Line:
         return line1
     except Exception as e:
         print(e)
-
 
 # 设置未来气温比较输出提示
 def abs_maxmin(result_weather):
@@ -300,48 +182,27 @@ def abs_maxmin(result_weather):
             f'\n未来15天,{q_city}未来7天最低气温单日降幅达≥5°,请前置仓团队注意备货品类和比例,履约团队注意配货率波动,采购团队注意市场变化'
         )
 
-
-# 上传图片
-def upload_img():
-    url = "https://open.feishu.cn/open-apis/im/v1/images"
-    headers = {
-        'Authorization': 'Bearer ' + get_authorization()
-    }
-    payload = {'image_type': 'message'}
-    image_list = ['line_weather_max.png', 'line_weather_min.png']
-    image_keys = []
-    for img in image_list:
-        files = [
-            ('image',
-             (img, open(f'/data/project/test/weather/img/{img}', 'rb'), 'application/json'))
-        ]
-        response = requests.request("POST", url, headers=headers, data=payload, files=files)
-        response_data = json.loads(response.text)
-        image_key = response_data['data']['image_key']
-        print(image_key)
-        image_keys.append(image_key)
-    return image_keys
-
-
 if __name__ == '__main__':
-    # 获取app权限
-    get_authorization()
     line = made_tu_weather_max()
     # 执行sql语句
     client.exec_sql(sql2)
     # 获取全部结果转为dataframe形式数据
     result_weather_min = client.fetch_all_dataframe()
+    # 开启告警类，设置标题
+    alarm = Alarm(alarm_title='未来气温监控')
     # 制作气温图
     line1 = made_tu_weather_min(result_weather_min)
     # 上传所有图片
-    image_keys = upload_img()
-    # 开启告警类，设置标题
-    alarm = Alarm_XG(alarm_title='未来气温监控')
+    img_list = ['/home/data_user/xiaogao/line_weather_max.png', '/home/data_user/xiaogao/line_weather_min.png']
+    image_keys = alarm.upload_img(img_list) # 可以接受多张图, 返回多个img_key
     # 设置告警颜色
     alarm.set_color('green')
+    for img_key in image_keys:
+        alarm.set_alarm_img(img_key, 'test')
     # 添加文字提示
     alarm.set_alarm_field('注', '以上两张图分别是未来最高温趋势图和未来最低温趋势图')
     # 设置未来气温比较输出提示
     abs_maxmin(result_weather_min)
     alarm.set_alarm_url('https://open.feishu.cn/open-apis/bot/v2/hook/e49bcaa3-597c-452b-b803-cc7d62cf2276')
-    alarm.send_feishu(alarm.build_alarm())
+    # alarm.set_alarm_url('https://open.feishu.cn/open-apis/bot/v2/hook/294cf0df-3150-410e-b25d-6932f0cf38df')
+    alarm.send_to_feishu(alarm.build_alarm())

@@ -6,6 +6,7 @@ select
         when four_page_name in ('档口现货快速补货','档口现货大牌联合入仓') then '现货频道-轮播下两坑运营位'
         when four_page_name in ('档口现货市场特价','档口现货市场新款','档口现货返单爆款') then '现货频道-三坑运营位'
         when four_page_name like '档口现货品类%' then '现货频道-品类八坑运营位'
+        when four_page_name = '档口现货品类下方运营位' then '档口现货品类下方运营位'
     end as model_name
     ,case 
         when four_page_name = '档口现货快速补货' then '现货频道-轮播下两坑运营位-左坑'
