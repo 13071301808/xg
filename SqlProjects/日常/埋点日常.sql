@@ -1,0 +1,11 @@
+{
+    "event_id":"(唯一id)",
+    "operateDict":{
+        "home_index_desc":"AA_(banner_id)",
+        "home_index":"AA_x_x（x从1开始，第一个x是页面从上到下的模块位置，第二个x是模块内从左到右的位置）",
+        "url":"(h5链接)"
+    },
+    "page_name":"H5",
+    "report_time":"(10位时间戳)",
+    "index":(第几步，由app默认传不用变动)
+}

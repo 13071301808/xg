@@ -55,10 +55,10 @@ class Alarm:
         self.alarm_content.append(field_info)
 
     def build_alarm(self):
-        '''
+        """
         生成告警信息
         :return: 字符串类型
-        '''
+        """
         return self.generate_alarm_message(self.alarm_content)
 
     def get_alarm_desc(self, description):
