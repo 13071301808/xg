@@ -1,0 +1,183 @@
+2025-05-16 10:32:06,772|20628|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 10:32:12,202|20628|MainThread|INFO|dli.execute|submit job: 8f44c8e3-26d4-4ee4-8cab-6a9d73f63e38|dli.py:211
+2025-05-16 10:32:17,735|20628|MainThread|INFO|dli.execute|submit job: 422f6f35-ea16-4fbf-a57f-b2897ee9e38d|dli.py:211
+2025-05-16 10:32:23,327|20628|MainThread|INFO|dli.execute|submit job: 9644ad77-0212-46cb-854c-461bd79ce61d|dli.py:211
+2025-05-16 10:32:27,303|20628|MainThread|INFO|dli.execute|submit job: 13d38b41-83b0-4f8b-a4f3-b4b42fee5716|dli.py:211
+2025-05-16 10:32:32,469|20628|MainThread|INFO|dli.execute|submit job: 3dcf1e54-c0ee-4dd0-9093-71384c560a67|dli.py:211
+2025-05-16 10:32:37,951|20628|MainThread|INFO|dli.execute|submit job: 45ba9212-cbf5-443c-a764-7b08a04d071e|dli.py:211
+2025-05-16 10:32:43,000|20628|MainThread|INFO|dli.execute|submit job: 49ac24b2-86cf-493a-8864-b49b72a0abf8|dli.py:211
+2025-05-16 10:32:47,970|20628|MainThread|INFO|dli.execute|submit job: 259f3da4-7bea-43a3-8f21-dc81293c5f1e|dli.py:211
+2025-05-16 10:32:52,990|20628|MainThread|INFO|dli.execute|submit job: 5bf37323-6474-4ec5-a3df-7d04ffb54782|dli.py:211
+2025-05-16 10:32:57,461|20628|MainThread|INFO|dli.execute|submit job: 487cb1fd-9dfa-45a5-ad64-d0965ebcac16|dli.py:211
+2025-05-16 10:33:01,927|20628|MainThread|INFO|dli.execute|submit job: 1e6ea47c-0d24-4939-b30b-bb2c2731390a|dli.py:211
+2025-05-16 10:33:07,122|20628|MainThread|INFO|dli.execute|submit job: f87050d1-f603-4feb-b001-92b5966e2c27|dli.py:211
+2025-05-16 10:41:55,111|9036|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 10:41:58,702|9036|MainThread|INFO|dli.execute|submit job: 90d9658e-03d1-4b19-8b88-b7f109170f0f|dli.py:211
+2025-05-16 10:41:58,702|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:41:58,900|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:42:03,741|9036|MainThread|INFO|dli.execute|submit job: 476a0f0d-d6e7-4a14-98e2-19958a112871|dli.py:211
+2025-05-16 10:42:03,741|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:42:04,064|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:42:08,801|9036|MainThread|INFO|dli.execute|submit job: 9dc62e4c-f227-43ad-b628-0bfbc6adeb76|dli.py:211
+2025-05-16 10:42:08,801|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:42:09,294|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:42:13,825|9036|MainThread|INFO|dli.execute|submit job: 81924580-8c6d-4afe-89aa-eebf3d0191a3|dli.py:211
+2025-05-16 10:42:13,825|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:42:14,004|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:42:18,521|9036|MainThread|INFO|dli.execute|submit job: 4b32eec5-4f64-4dff-aaed-cc57fba2ccdd|dli.py:211
+2025-05-16 10:42:18,521|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:42:18,668|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:42:23,132|9036|MainThread|INFO|dli.execute|submit job: 759ebb88-a705-4a7c-8227-4d4c6d8f37c5|dli.py:211
+2025-05-16 10:42:23,133|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:42:23,278|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:42:27,890|9036|MainThread|INFO|dli.execute|submit job: 134ad3c7-bbcf-43b1-aa47-b5ab0cd7cdfd|dli.py:211
+2025-05-16 10:42:27,890|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:42:28,072|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:42:32,534|9036|MainThread|INFO|dli.execute|submit job: 6556f96e-1993-48a7-a051-23e3b1132ddc|dli.py:211
+2025-05-16 10:42:32,535|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:42:32,786|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:42:36,657|9036|MainThread|INFO|dli.execute|submit job: d40cecb3-267b-4314-b130-ba86844100f1|dli.py:211
+2025-05-16 10:42:36,657|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:42:36,792|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:42:40,741|9036|MainThread|INFO|dli.execute|submit job: 7cf08633-df26-4505-b042-b791578cfef2|dli.py:211
+2025-05-16 10:42:40,741|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:42:40,911|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:42:44,842|9036|MainThread|INFO|dli.execute|submit job: 8db4a9a8-e912-4fd8-89c7-3a36d6289c6d|dli.py:211
+2025-05-16 10:42:44,842|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:42:44,979|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:42:55,389|9036|MainThread|INFO|dli.execute|submit job: 5999d4c3-95a4-4641-b381-219d99fa1e48|dli.py:211
+2025-05-16 10:42:55,389|9036|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:42:55,616|9036|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:44:06,269|8916|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 10:44:11,079|8916|MainThread|INFO|dli.execute|submit job: 3f0d6762-71f9-426f-a6af-816e5423a535|dli.py:211
+2025-05-16 10:44:11,080|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:44:11,298|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:44:16,649|8916|MainThread|INFO|dli.execute|submit job: cedd824b-584c-4caf-9cf2-927e80330838|dli.py:211
+2025-05-16 10:44:16,649|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:44:16,851|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:44:22,143|8916|MainThread|INFO|dli.execute|submit job: 82501f4e-caa2-434d-a7eb-a670ac0f3e21|dli.py:211
+2025-05-16 10:44:22,143|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:44:22,408|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:44:26,794|8916|MainThread|INFO|dli.execute|submit job: 4d8cf669-22f8-4985-8d73-5d20736ae18f|dli.py:211
+2025-05-16 10:44:26,794|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:44:27,018|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:44:32,583|8916|MainThread|INFO|dli.execute|submit job: 1f6729de-d573-445c-b880-e6ba96b32830|dli.py:211
+2025-05-16 10:44:32,584|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:44:32,786|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:44:38,304|8916|MainThread|INFO|dli.execute|submit job: c8c4d0f8-dd02-471f-9351-681acc115682|dli.py:211
+2025-05-16 10:44:38,304|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:44:38,433|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:44:42,869|8916|MainThread|INFO|dli.execute|submit job: e7ad601e-4b8a-4f56-bcc7-5273a563d506|dli.py:211
+2025-05-16 10:44:42,869|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:44:43,037|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:44:47,438|8916|MainThread|INFO|dli.execute|submit job: 5ea0a2a2-c1ee-4fb6-8662-b5e15d6bb635|dli.py:211
+2025-05-16 10:44:47,438|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:44:47,601|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:44:51,600|8916|MainThread|INFO|dli.execute|submit job: 079dca55-9007-41d9-9e96-b9947369ac29|dli.py:211
+2025-05-16 10:44:51,600|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:44:51,918|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:44:56,339|8916|MainThread|INFO|dli.execute|submit job: 1e283c5e-736c-4d0c-a333-5c767754e776|dli.py:211
+2025-05-16 10:44:56,340|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:44:56,587|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:45:00,472|8916|MainThread|INFO|dli.execute|submit job: e0d1c5d2-b63d-41ca-b5e4-2a2581ac90dd|dli.py:211
+2025-05-16 10:45:00,472|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:45:00,681|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 10:45:06,098|8916|MainThread|INFO|dli.execute|submit job: 6bbae039-05e1-44e8-af9c-e310d8524416|dli.py:211
+2025-05-16 10:45:06,099|8916|MainThread|INFO|dli._fetch_more|starting fetch all job result from DLI|dli.py:226
+2025-05-16 10:45:06,533|8916|MainThread|INFO|dli._fetch_more|finished fetch job result|dli.py:231
+2025-05-16 18:21:50,521|13528|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 18:21:50,522|13528|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 18:22:34,768|7052|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 18:22:34,769|7052|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 18:22:59,085|6912|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 18:22:59,086|6912|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 18:25:40,940|23548|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 18:25:40,941|23548|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 18:25:44,018|23548|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 10a65451-38ba-4df8-857d-7f4b22a387bb|dli.py:211
+2025-05-16 18:29:48,311|20964|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 18:29:48,312|20964|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 18:30:00,222|3720|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-16 18:30:00,223|3720|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 10:03:28,112|2124|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 10:03:28,113|2124|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 10:24:59,621|2124|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: e5313ffc-8b43-4604-8456-44f47a64147a|dli.py:211
+2025-05-19 10:52:32,009|2124|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: c0d540e3-18f4-40af-81d9-301767abc4ae|dli.py:211
+2025-05-19 11:11:37,345|2124|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 8617e611-939b-4870-8155-0817b81b85c6|dli.py:211
+2025-05-19 11:22:42,312|2124|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: a64729b0-8fce-4c73-a7cb-bef298997a1a|dli.py:211
+2025-05-19 11:32:58,079|2124|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 867a8ae0-b1e2-42ee-b312-76a20d98eab9|dli.py:211
+2025-05-19 11:42:19,097|2124|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 0d494fc2-93a4-4281-94fe-d9f2d306a3f2|dli.py:211
+2025-05-19 11:54:02,720|2124|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 7bc85a4b-1c8c-49b2-9f3e-67f2521537fe|dli.py:211
+2025-05-19 12:03:08,521|2124|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: b3e8f6f9-5a53-4486-8b1e-2f0f9b54d00b|dli.py:211
+2025-05-19 12:25:39,286|8952|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 12:25:39,287|8952|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 12:26:00,272|12428|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 12:26:00,273|12428|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 12:26:31,088|6380|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 12:26:31,089|6380|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 12:37:17,687|6380|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 8a992368-380f-43b3-b7a2-69c7e8413a34|dli.py:211
+2025-05-19 12:47:51,380|6380|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 3d332d90-4e84-4d24-9ed7-906b373092f6|dli.py:211
+2025-05-19 12:48:24,689|13524|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 12:48:24,689|13524|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 12:49:18,988|252|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 12:49:18,989|252|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 12:59:31,837|252|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 6d4adbdd-209d-4f87-a266-51b155a08408|dli.py:211
+2025-05-19 13:27:12,523|252|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 23978f1a-14be-4c21-acda-282d24fdecd2|dli.py:211
+2025-05-19 13:53:02,729|252|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 76505f39-c59c-4c39-93de-9c6eb8d2b0c8|dli.py:211
+2025-05-19 14:10:24,905|252|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: af821bf0-bb9c-420d-ae5a-fa943f87bb94|dli.py:211
+2025-05-19 14:28:19,733|252|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 15602e37-3f97-4944-a357-e16553273e80|dli.py:211
+2025-05-19 14:34:31,355|16392|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 14:34:31,356|16392|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 14:54:32,704|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: b8a4fef9-e001-40c3-b38e-f6f0e6a3cb05|dli.py:211
+2025-05-19 15:11:28,448|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 26b36352-2413-4855-80d2-9f334e620b8b|dli.py:211
+2025-05-19 15:22:47,069|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: b13731f0-36e8-48ff-b2bc-7afc883a36b0|dli.py:211
+2025-05-19 15:34:08,633|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: cf94a439-8d87-4863-af05-f801d70d226d|dli.py:211
+2025-05-19 15:43:27,759|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 6e46e389-6001-4025-9c83-a77b4a39151a|dli.py:211
+2025-05-19 15:53:17,384|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 306557d3-e8b4-47f0-ad3d-63d987a77cf5|dli.py:211
+2025-05-19 16:04:17,554|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: d11d6bc0-c728-478e-89c1-6ed608d734de|dli.py:211
+2025-05-19 16:17:13,146|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 54244660-0c54-4f3e-b9c3-d5b7aaddab88|dli.py:211
+2025-05-19 16:30:12,939|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: a4e0d420-6ec6-4498-9ee3-b5f4edf677f8|dli.py:211
+2025-05-19 16:40:08,763|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: c2b58aaa-165d-4d76-999f-b8e00971eb77|dli.py:211
+2025-05-19 16:50:36,423|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: a22dee42-b600-4821-aeb2-f7c2d43418d9|dli.py:211
+2025-05-19 17:00:15,332|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 1f49f7bd-1cc2-4432-809b-4decd82552d1|dli.py:211
+2025-05-19 17:14:12,162|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 72558b31-cc63-420a-834a-5eb3673342d4|dli.py:211
+2025-05-19 17:26:56,392|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 53c3adef-8cd8-470a-887f-607170715b16|dli.py:211
+2025-05-19 17:39:09,760|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 150fde1d-970e-4430-b1cc-8d8f6f114db6|dli.py:211
+2025-05-19 17:50:22,315|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 7a1f834c-b20e-4817-9b7f-3b4f70e238dd|dli.py:211
+2025-05-19 18:00:09,711|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: dd4dccc9-6f5b-4ca6-b0c8-79a8b082dce4|dli.py:211
+2025-05-19 19:50:27,301|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 0ba00457-596e-4cd1-a23a-25c250559601|dli.py:211
+2025-05-19 19:59:55,270|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 3306eec8-5c1b-4764-ad46-eae1c1980c85|dli.py:211
+2025-05-19 20:17:38,582|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: abf3d66f-8571-4674-b56a-458997de4ac2|dli.py:211
+2025-05-19 20:36:21,339|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 8a8a9d9a-e591-4b26-bf5d-18457bb218b9|dli.py:211
+2025-05-19 20:50:12,913|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 8790d1e5-b06c-464c-b125-3ac8544b23f3|dli.py:211
+2025-05-19 21:08:09,992|16392|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: ead9c8b6-d646-442f-acf1-a986d9880fef|dli.py:211
+2025-05-19 21:38:15,012|11876|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 21:38:15,013|11876|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-19 21:53:39,401|11876|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 08b26cbf-d175-4294-a283-23d086f321d8|dli.py:211
+2025-05-19 22:06:51,775|11876|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: f21098c7-92f7-4eb1-911d-7a21cf4b30ec|dli.py:211
+2025-05-20 09:24:13,548|20668|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 09:24:13,550|20668|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 09:41:49,732|20668|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 8f0b4e11-6109-45ec-93a0-16ac8ccfd943|dli.py:211
+2025-05-20 09:50:59,989|20668|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: cfb7b487-bbed-4ff7-9db5-7eb51a74dab0|dli.py:211
+2025-05-20 09:58:16,130|20668|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 0417ea73-32f0-4521-8cc6-a03ffc41bd75|dli.py:211
+2025-05-20 10:31:19,026|20668|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 038f0b3c-293a-4a1e-90b6-312b711ba768|dli.py:211
+2025-05-20 11:07:56,035|17620|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 11:07:56,035|17620|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 11:24:19,681|17620|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 6d7a2996-1e0f-415f-8576-560cc0223e1d|dli.py:211
+2025-05-20 11:37:51,946|17620|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: c25c4887-ef43-495e-9c16-35206dc72b51|dli.py:211
+2025-05-20 11:46:05,901|21664|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 11:46:05,902|21664|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 11:46:14,336|13040|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 11:46:14,337|13040|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 11:46:48,180|5536|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 11:46:48,181|5536|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 11:47:19,906|7092|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 11:47:19,907|7092|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 11:57:42,342|7092|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: a06f4199-cfc4-4571-8d5f-35f0c4c9efde|dli.py:211
+2025-05-20 13:20:48,342|1184|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 13:20:48,343|1184|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 13:37:35,336|7584|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 13:37:35,337|7584|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 13:52:50,238|7584|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: cb97f6f7-c480-4ceb-9779-9633f705a3bf|dli.py:211
+2025-05-20 14:09:11,642|7584|ThreadPoolExecutor-0_0|INFO|dli.execute|submit job: 886f3103-9b78-4771-934b-e01e2d9d409d|dli.py:211
+2025-05-20 14:12:47,650|13828|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91
+2025-05-20 14:12:47,651|13828|MainThread|INFO|dli.__init__|connecting DLI on cn-south-1|dli.py:91

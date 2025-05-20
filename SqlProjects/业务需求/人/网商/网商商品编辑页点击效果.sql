@@ -18,6 +18,6 @@ select
     ,count(user_id) as 点击pv
     ,count(DISTINCT user_id) as 点击uv
 from yishou_data.dcl_h5_distribution_goods_edit_page_dt
-where dt between '20250101' and '20250515'
-and name in ('修改标题','图片展示','图片裁剪')
+where dt between '20250101' and '20250518'
+and name in ('修改标题','编辑图片','裁剪图片')
 group by 1,2,3,4
