@@ -45,7 +45,7 @@ with all_event_id as
     ) t1
     where nu = 1
 )
-INSERT OVERWRITE table yishou_daily.route_all_event_exposure_detail_v2_0520 partition(dt)
+INSERT OVERWRITE table yishou_daily.route_all_event_exposure_detail_v2 partition(dt)
 select
     special_date,event_id,event_time,goods_id,user_id,first_home_index,first_home_index_desc,
     case
@@ -233,4 +233,5 @@ from
     where to_char(special_date,'yyyymmdd') >= TO_CHAR(DATEADD(to_date1('${bdp.system.bizdate}','yyyymmdd'),-4,"dd"),"yyyymmdd")
 )
 group by 1,2,3,4,5,6,7,8,9,10,11,12,13
+having dt = '${bdp.system.bizdate}'
 ;

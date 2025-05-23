@@ -24,7 +24,7 @@ spark_options = {
     "spark.sql.adaptive.skewJoin.optimizeMultiTableJoins": "true",
     "spark.sql.adaptive.skewedJoin.enabled": "true",
     # 'spark.scheduler.pool': 'high',
-    "spark.sql.shuffle.partitions": "400"
+    "spark.sql.shuffle.partitions": "600"
 }
 
 # 创建开发队列和分析队列的 SQL 客户端
@@ -111,7 +111,7 @@ if __name__ == '__main__':
     pool = ThreadPoolExecutor(max_workers=MAX_WORKERS)
 
     # 多参数补数
-    date_generator = DateGenerator(20241129, 20250201)
+    date_generator = DateGenerator(20250412, 20250502)
     # date_ranges = date_generator.generate_month_ranges_date_3()  # 会生成三个参数
     date_ranges = date_generator.generate_custom_ranges_date_3(1)  # 会生成三个参数
 
@@ -121,8 +121,11 @@ if __name__ == '__main__':
     logger.info(f"全量补数作业数, 共{total_job_count}个")
 
     # 提交多参数补数任务到线程池
+    # for date_range in date_ranges:
+    #     partial_func = partial(supplement_data_with_3_params, date_range, '${bdp.system.bizdate}', '${xxxxxxxxxx}',
+    #                            '${xxxxxxxxx}')  # 根据三个参数, 填入对应的变量名
+    #     pool.submit(partial_func)
+    # pool.shutdown()
+
     for date_range in date_ranges:
-        partial_func = partial(supplement_data_with_3_params, date_range, '${bdp.system.bizdate}', '${xxxxxxxxxx}',
-                               '${xxxxxxxxx}')  # 根据三个参数, 填入对应的变量名
-        pool.submit(partial_func)
-    pool.shutdown()
+        supplement_data_with_3_params(date_range, '${bdp.system.bizdate}', '${xxxxxxxxxx}','${xxxxxxxxx}')
